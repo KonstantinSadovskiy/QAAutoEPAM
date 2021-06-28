@@ -12,14 +12,13 @@ namespace DevelopmentAndBuildTools
             {
                 Console.WriteLine(CountMaxAmountOfDifferentConsecutiveChars(inputString).ToString()); 
             }
-
-            catch(ArgumentNullException)
+            catch(ArgumentNullException ex)
             {
-                Console.WriteLine("Can't accept null string");
+                Console.WriteLine(ex.Message);
             }
         }
 
-        public static bool IsSameToPreviousChar(string sequenceOfChars, int index)
+        private static bool IsSameToPreviousChar(string sequenceOfChars, int index)
         {
             return sequenceOfChars[index] == sequenceOfChars[index - 1];
         }
