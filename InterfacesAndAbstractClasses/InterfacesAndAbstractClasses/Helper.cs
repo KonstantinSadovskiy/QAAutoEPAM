@@ -33,7 +33,7 @@ namespace InterfacesAndAbstractClasses
                 }
             }
             averageSpeed += Math.Round((currentSpeedFromAcceleration * lastIterationPercentagePart), 4);
-            return averageSpeed;
+            return Math.Round(averageSpeed, 4);
         }
     }
 }

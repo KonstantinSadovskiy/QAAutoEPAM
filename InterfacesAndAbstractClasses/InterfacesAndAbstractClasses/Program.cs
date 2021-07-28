@@ -21,12 +21,12 @@ namespace InterfacesAndAbstractClasses
                 Coordinates planeNewCooordinates = new Coordinates(100, 100, 100);
                 Coordinates droneNewCooordinates = new Coordinates(100, 100, 100);
 
-                Console.WriteLine("Fly times (in minutes): \n" + 
+                Console.WriteLine("Fly times (in minutes): \n" +
                                   "Bird fly time: " + bird.GetFlyTime(birdNewCooordinates).ToString() + "\n" +
                                   "Plane fly time: " + plane.GetFlyTime(planeNewCooordinates).ToString() + "\n" +
                                   "Drone fly time: " + drone.GetFlyTime(droneNewCooordinates).ToString() + "\n");
             }
-            catch(ArgumentException ex)
+            catch (ArgumentException ex)
             {
                 Console.WriteLine(ex.Message);
             }
