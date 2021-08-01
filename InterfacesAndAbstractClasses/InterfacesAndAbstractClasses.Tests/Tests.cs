@@ -4,16 +4,16 @@ using System;
 namespace InterfacesAndAbstractClasses.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class Tests
     {
         [DataTestMethod]
         [TestMethod]
         [DataRow(500, 10, 10, 1500, 245)]
         [DataRow(1000, -10, 5, 1500, -995)]
         [DataRow(20, 30, 15, 1000, 7.5)]
-        public void CheckIfCountAverageAccelerationSpeedWorkingCorrect(double range, double accelerationValue, double rangeForOneAccelerationIteration, double maxSpeed, double result)
+        public void CheckIfCountAverageAccelerationSpeedWorkingCorrect(double range, double accelerationValue, double accelerationRange, double maxSpeed, double result)
         {
-            Assert.AreEqual(Helper.CountAverageAccelerationSpeed(range, accelerationValue, rangeForOneAccelerationIteration, maxSpeed), result);
+            Assert.AreEqual(Helper.CountAverageAccelerationSpeed(range, accelerationValue, accelerationRange, maxSpeed), result);
         }
 
         [ExpectedException(typeof(ArgumentException))]

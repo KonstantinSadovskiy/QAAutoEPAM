@@ -1,32 +1,38 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InterfacesAndAbstractClasses
 {
     public static class Helper
     {
-        public static double FindRange(Coordinates initCoordinates, Coordinates newCoordinates)
+        /// <summary>
+        /// This method counts average speed on a range if acceleration depends on traveled distance. Uses same algorithm as expectation in statistics.
+        /// </summary>
+        /// <param name="range">Traveled distance</param>
+        /// <param name="accelerationValue">Amount of acceleration gained on travelling certain distance</param>
+        /// <param name="accelerationRange">Amount of distance that need to be travelled to gain acceleration</param>
+        /// <param name="maxSpeed">Max available speed</param>
+        /// <returns>Average speed on travelled range</returns>
+        public static double CountAverageAccelerationSpeed(double range, double accelerationValue, double accelerationRange, double maxSpeed)
         {
-            return Math.Sqrt((newCoordinates.XCoord - initCoordinates.XCoord) * (newCoordinates.XCoord - initCoordinates.XCoord) +
-                             (newCoordinates.YCoord - initCoordinates.YCoord) * (newCoordinates.YCoord - initCoordinates.YCoord) +
-                             (newCoordinates.ZCoord - initCoordinates.ZCoord) * (newCoordinates.ZCoord - initCoordinates.ZCoord));
-        }
-
-        public static double CountAverageAccelerationSpeed(double range, double accelerationValue, double rangeForOneAccelerationIteration, double maxSpeed)
-        {
-            double fullIterationsAmount = Math.Floor(range / rangeForOneAccelerationIteration);
-            double lastIteration = Math.Round((range % rangeForOneAccelerationIteration), 4) / rangeForOneAccelerationIteration;
+            //Number of acceleration ranges that can fully fit in overall range
+            double fullIterationsAmount = Math.Floor(range / accelerationRange);
+            //Percentage of acceleration range that fits in residuals
+            double lastIteration = Math.Round((range % accelerationRange), 4) / accelerationRange;
+            //Number(may be fractional) of acceleration ranges that fits in range
             double allIterationsAmount = fullIterationsAmount + lastIteration;
-            double eachFullIterationPercentagePart = Math.Round((1 / allIterationsAmount), 4);
+            //Percentage of range taken by 1 full acceleration range
+            double fullIterationPercentagePart = Math.Round((1 / allIterationsAmount), 4);
+            //Percentage of range taken by last acceleration range
             double lastIterationPercentagePart = Math.Round((lastIteration / allIterationsAmount), 4);
             double averageSpeed = 0;
+            //Speed on certain section of range
             double currentSpeedFromAcceleration = 0;
+
+            //Counting average speed by multiplying speed in each section of range by percentage that this secton takes from overall range
+            //Similar to expectation in statistics
             for (int iter = 0; iter < fullIterationsAmount; iter++)
             {
-                averageSpeed += Math.Round((currentSpeedFromAcceleration * eachFullIterationPercentagePart), 4);
+                averageSpeed += Math.Round((currentSpeedFromAcceleration * fullIterationPercentagePart), 4);
                 if(currentSpeedFromAcceleration < maxSpeed)
                 {
                     currentSpeedFromAcceleration += accelerationValue;

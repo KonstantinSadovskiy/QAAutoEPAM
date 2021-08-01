@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace InterfacesAndAbstractClasses
 {
+    /// <summary>
+    /// Struct that defines 3d coordinates
+    /// </summary>
     public struct Coordinates
     {
         public double XCoord { get; set; }
@@ -21,6 +24,18 @@ namespace InterfacesAndAbstractClasses
             this.XCoord = x;
             this.YCoord = y;
             this.ZCoord = z;
+        }
+
+        /// <summary>
+        /// Counts range between initial and new coordinates
+        /// </summary>
+        /// <param name="newCoordinates">New coordinates</param>
+        /// <returns>Range between two coordinates</returns>
+        public double FindRange(Coordinates newCoordinates)
+        {
+            return Math.Sqrt((newCoordinates.XCoord - this.XCoord) * (newCoordinates.XCoord - this.XCoord) +
+                             (newCoordinates.YCoord - this.YCoord) * (newCoordinates.YCoord - this.YCoord) +
+                             (newCoordinates.ZCoord - this.ZCoord) * (newCoordinates.ZCoord - this.ZCoord));
         }
     }
 }
