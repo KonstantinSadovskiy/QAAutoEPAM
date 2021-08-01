@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOP
 {
+    /// <summary>
+    /// Defines car
+    /// </summary>
     [Serializable]
     public class Car : Transport
     {
@@ -19,10 +18,13 @@ namespace OOP
             this.Price = price;
         }
 
-        public override void DisplayInfo()
+        /// <summary>
+        /// Returns string with information about car
+        /// </summary>
+        public override string Getinfo()
         {
-            base.DisplayInfo();
-            Console.WriteLine("Car price: " + this.Price.ToString() + "\n");
+            return (base.Getinfo()+
+                    "Car price: " + this.Price.ToString() + "\n\n");
         }
     }
 }

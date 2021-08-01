@@ -42,11 +42,11 @@ namespace OOP
                 transports[4] = scooterBike;
 
                 AutoPark autoPark = new AutoPark(transports);
-                //autoPark.DisplayInfo();
+                Console.WriteLine(autoPark.GetInfo());
 
-                ListSerialization.SerializeList(Helper.ApplyAboveVolumeValueFilter(autoPark, 1.5), "PowerFiltered.xml");
-                ListSerialization.SerializeList(Helper.ApplyBusOrTruckFilter(autoPark).Select(transportItem => transportItem.Engine).ToList(), "BusOrTruckEngineFiltered.xml");
-                ListSerialization.SerializeList(Helper.ApplyGroupByTransmissionFilter(autoPark), "GroupByTransmissionFiltered.xml");
+                ListSerialization.SerializeList(Helper.GetTransportAboveVolumeValue(autoPark, 1.5), "PowerFiltered.xml");
+                ListSerialization.SerializeList(Helper.GetTransportBusAndTruck(autoPark).Select(transportItem => transportItem.Engine).ToList(), "BusOrTruckEngineFiltered.xml");
+                ListSerialization.SerializeList(Helper.GetTransportGroupByTransmission(autoPark), "GroupByTransmissionFiltered.xml");
             }
             catch(ArgumentNullException ex)
             {

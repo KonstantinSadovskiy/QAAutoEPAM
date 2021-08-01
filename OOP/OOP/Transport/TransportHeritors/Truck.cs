@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOP
 {
+    /// <summary>
+    /// Defines truck
+    /// </summary>
     [Serializable]
     public class Truck : Transport
     {
@@ -19,10 +18,13 @@ namespace OOP
             this.CurrentAssignment = currentAssignment;
         }
 
-        public override void DisplayInfo()
+        /// <summary>
+        /// Returns string with information about truck
+        /// </summary>
+        public override string Getinfo()
         {
-            base.DisplayInfo();
-            Console.WriteLine("Current assignment: " + this.CurrentAssignment + "\n");
+            return (base.Getinfo() +
+                    "Current assignment: " + this.CurrentAssignment + "\n\n");
         }
     }
 }

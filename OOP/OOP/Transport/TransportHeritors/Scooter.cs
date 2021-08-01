@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace OOP
 {
+    /// <summary>
+    /// Defines scooter
+    /// </summary>
     [Serializable]
     public class Scooter : Transport
     {
@@ -19,10 +17,13 @@ namespace OOP
             this.MaxSpeed = maxSpeed;
         }
 
-        public override void DisplayInfo()
+        /// <summary>
+        /// Returns string with information about scooter
+        /// </summary>
+        public override string Getinfo()
         {
-            base.DisplayInfo();
-            Console.WriteLine("Scooter maximum speed: " + this.MaxSpeed.ToString() + "\n");
+            return (base.Getinfo() +
+                    "Scooter maximum speed: " + this.MaxSpeed.ToString() + "\n\n");
         }
     }
 }

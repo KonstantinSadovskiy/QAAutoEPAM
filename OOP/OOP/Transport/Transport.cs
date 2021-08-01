@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace OOP
 {
+    /// <summary>
+    /// Abstract class that defines basic transport
+    /// </summary>
     [XmlInclude(typeof(Car))]
     [XmlInclude(typeof(Bus))]
     [XmlInclude(typeof(Truck))]
@@ -30,12 +29,15 @@ namespace OOP
             this.ModelName = modelName;
         }
 
-        public virtual void DisplayInfo()
+        /// <summary>
+        /// Virtual method that returns string with basic info about transport
+        /// </summary>
+        public virtual string Getinfo()
         {
-            Console.WriteLine("Name: " + this.ModelName);
-            this.Engine.DisplayInfo();
-            this.Chassis.DisplayInfo();
-            this.Transmission.DisplayInfo();
+            return ("Name: " + this.ModelName + "\n" +
+                    this.Engine.Getinfo() +
+                    this.Chassis.GetInfo() +
+                    this.Transmission.GetInfo());
         }
     }
 }

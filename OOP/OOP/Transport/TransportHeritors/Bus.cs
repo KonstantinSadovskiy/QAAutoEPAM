@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OOP
 {
+    /// <summary>
+    /// Defines bus
+    /// </summary>
     [Serializable]
     public class Bus : Transport
     {
@@ -19,10 +18,13 @@ namespace OOP
             this.AmountOfSeats = amountOfSeats;
         }
 
-        public override void DisplayInfo()
+        /// <summary>
+        /// Returns string with information about bus
+        /// </summary>
+        public override string Getinfo()
         {
-            base.DisplayInfo();
-            Console.WriteLine("Amount of seats in bus: " + this.AmountOfSeats.ToString() + "\n");
+            return (base.Getinfo() +
+                    "Amount of seats in bus: " + this.AmountOfSeats.ToString() + "\n\n");
         }
     }
 }
