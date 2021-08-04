@@ -10,6 +10,10 @@ namespace BasicOfNETFrameworkAndCSharp
     public static class NumberSystemsOperations
     {
         private const int maxNewSystem = 20;
+        private const int AmountOfLetters = 25;
+        private const int ASCIICapLettersStart = 65;
+        private const int FirstNonNumberDigit = 10;
+        private const int ASCIIFirstDigit = 48;
 
         /// <summary>
         /// Converts decimal number into other system base number
@@ -19,6 +23,7 @@ namespace BasicOfNETFrameworkAndCSharp
         /// <returns>String number in new system base</returns>
         public static string ConvertDecimalToNewSystem(int decimalNumber, int newSystem)
         {
+            //Working only with natural numbers
             if (decimalNumber < 0)
             {
                 throw new ArgumentException("Decimal number has to be natural");
@@ -81,17 +86,17 @@ namespace BasicOfNETFrameworkAndCSharp
         private static char SeparateDigits(int digit)
         {
             //If not matching any digit chars, throw exception
-            if (digit < 0 || digit > 25)
+            if (digit < 0 || digit > AmountOfLetters)
             {
                 throw new ArgumentException();
             }
             //If int digit bigger than 9, return matching letter digit
             if (digit > 9)
             {
-                return (char)(55 + digit);
+                return (char)(ASCIICapLettersStart - FirstNonNumberDigit + digit);
             }
             //Return char equivalent of int digit
-            return (char)(48 + digit);
+            return (char)(ASCIIFirstDigit + digit);
         }
     }
 }
