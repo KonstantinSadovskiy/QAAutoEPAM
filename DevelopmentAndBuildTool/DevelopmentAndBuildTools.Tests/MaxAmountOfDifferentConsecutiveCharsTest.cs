@@ -12,10 +12,16 @@ namespace DevelopmentAndBuildTools.Tests
         [DataRow("a", 1)]
         [DataRow("avvjklrfgg", 7)]
         [DataRow("aha", 3)]
-        [DataRow(null, 0)]
         public void CheckIfWorkingCorrect(string sequenceOfChars, int maxAmountOfDifferentConsecutiveChars)
         {
             Assert.AreEqual(StringOperations.CountMaxConsecutiveAmount(sequenceOfChars), maxAmountOfDifferentConsecutiveChars);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void CheckIfThrowsArgNullException()
+        {
+            StringOperations.CountMaxConsecutiveAmount(null);
         }
     }
 }

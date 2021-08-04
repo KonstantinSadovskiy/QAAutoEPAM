@@ -1,4 +1,6 @@
-﻿namespace DevelopmentAndBuildTools
+﻿using System;
+
+namespace DevelopmentAndBuildTools
 {
     public static class StringOperations
     {
@@ -11,7 +13,7 @@
         {
             if (sequenceOfChars == null)
             {
-                return 0;
+                throw new ArgumentNullException("Can't accept null string");
             }
             //If string has only 1 char return 1
             if (sequenceOfChars.Length == 1)
