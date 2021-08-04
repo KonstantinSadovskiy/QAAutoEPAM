@@ -26,7 +26,7 @@ namespace InterfacesAndAbstractClasses
 
                 foreach (IFlyable item in flyingItem)
                 {
-                    Console.WriteLine("Fly time: " + item.GetFlyTime(newCooordinates).ToString());
+                    Console.WriteLine($"{ item.GetType().Name } fly time: " + item.GetFlyTime(newCooordinates).ToString());
                 }
             }
             catch (ArgumentException ex)
