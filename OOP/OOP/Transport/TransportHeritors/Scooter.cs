@@ -8,12 +8,29 @@ namespace OOP
     [Serializable]
     public class Scooter : Transport
     {
-        private double MaxSpeed { get; }
+        private double _maxSpeed;
+
+        public double MaxSpeed
+        {
+            get
+            {
+                return _maxSpeed;
+            }
+
+            set
+            {
+                if (value < 0)
+                {
+                    throw new InitializationException("MaxSpeed field value can't be negative.");
+                }
+                _maxSpeed = value;
+            }
+        }
 
         public Scooter() : base()
         { }
 
-        public Scooter(Engine engine, Chassis chassis, Transmission transmission, string modelName, double maxSpeed) : base(engine, chassis, transmission, modelName)
+        public Scooter(Engine engine, Chassis chassis, Transmission transmission, string modelName, int id, double maxSpeed) : base(engine, chassis, transmission, modelName, id)
         {
             this.MaxSpeed = maxSpeed;
         }

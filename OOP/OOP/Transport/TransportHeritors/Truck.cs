@@ -8,12 +8,29 @@ namespace OOP
     [Serializable]
     public class Truck : Transport
     {
-        private string CurrentAssignment { get; }
+        private string _currentAssignment;
+
+        public string CurrentAssignment
+        {
+            get
+            {
+                return _currentAssignment;
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    throw new InitializationException("Current assigment field string can't be null.");
+                }
+                _currentAssignment = value;
+            }
+        }
 
         public Truck() : base()
         { }
 
-        public Truck(Engine engine, Chassis chassis, Transmission transmission, string modelName, string currentAssignment) : base(engine,chassis,transmission, modelName)
+        public Truck(Engine engine, Chassis chassis, Transmission transmission, string modelName, int id, string currentAssignment) : base(engine,chassis,transmission, modelName, id)
         {
             this.CurrentAssignment = currentAssignment;
         }

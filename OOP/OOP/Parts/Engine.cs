@@ -24,7 +24,7 @@ namespace OOP
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException("Power can't be negative");
+                    throw new InitializationException("Power field value can't be negative.");
                 }
                 _power = value;
             }
@@ -41,7 +41,7 @@ namespace OOP
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException("Volume can't be negative");
+                    throw new InitializationException("Volume filed value can't be negative.");
                 }
                 _volume = value;
             }
@@ -58,7 +58,7 @@ namespace OOP
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("Type field can't be null");
+                    throw new InitializationException("Type field can't be null.");
                 }
                 _type = value;
             }
@@ -75,7 +75,7 @@ namespace OOP
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("Serial Number field can't be null");
+                    throw new InitializationException("Serial Number field can't be null.");
                 }
                 _serialNumber = value;
             }

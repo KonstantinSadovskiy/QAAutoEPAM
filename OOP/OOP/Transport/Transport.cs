@@ -13,20 +13,108 @@ namespace OOP
     [Serializable]
     public abstract class Transport
     {
-        public string ModelName { get; set; }
-        public Engine Engine { get; set; }
-        public Chassis Chassis { get; set; }
-        public Transmission Transmission { get; set; }
+        private string _modelName;
+        private Engine _engine;
+        private Chassis _chassis;
+        private Transmission _transmission;
+        private int _id;
+
+
+        public string ModelName
+        {
+            get
+            {
+                return _modelName;
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    throw new InitializationException("Model name field can't be null.");
+                }
+                _modelName = value;
+            }
+        }
+
+        public Engine Engine
+        {
+            get
+            {
+                return _engine;
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    throw new InitializationException("Engine field can't be null.");
+                }
+                _engine = value;
+            }
+        }
         
+        public Chassis Chassis
+        {
+            get
+            {
+                return _chassis;
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    throw new InitializationException("Chassis field can't be null.");
+                }
+                _chassis = value;
+            }
+        }
+        
+        public Transmission Transmission
+        {
+            get
+            {
+                return _transmission;
+            }
+
+            set
+            {
+                if (value == null)
+                {
+                    throw new InitializationException("Transmission field can't be null.");
+                }
+                _transmission = value;
+            }
+        }
+
+        public int Id
+        {
+            get
+            {
+                return _id;
+            }
+
+            set
+            {
+                if (value < 0)
+                {
+                    throw new InitializationException("Model name field can't be null.");
+                }
+                _id = value;
+            }
+        }
+
         public Transport() 
         { }
 
-        public Transport(Engine engine, Chassis chassis , Transmission transmission, string modelName)
+        public Transport(Engine engine, Chassis chassis , Transmission transmission, string modelName, int id)
         {
             this.Engine = engine;
             this.Chassis = chassis;
             this.Transmission = transmission;
             this.ModelName = modelName;
+            this.Id = id;
         }
 
         /// <summary>

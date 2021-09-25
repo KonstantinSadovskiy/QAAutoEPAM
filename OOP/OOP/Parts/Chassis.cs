@@ -8,9 +8,9 @@ namespace OOP
     [Serializable]
     public class Chassis
     {
-        public int _amountOfWheels;
-        public string _number;
-        public double _allowedLoad;
+        private int _amountOfWheels;
+        private string _number;
+        private double _allowedLoad;
 
         public int AmountOfWheels
         {
@@ -23,7 +23,7 @@ namespace OOP
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException("Amount of wheels can't be negative");
+                    throw new InitializationException("Amount of wheels field value can't be negative.");
                 }
                 _amountOfWheels = value;
             }
@@ -40,7 +40,7 @@ namespace OOP
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("Chassis number can't be null");
+                    throw new InitializationException("Chassis number field can't be null.");
                 }
                 _number = value;
             }
@@ -57,7 +57,7 @@ namespace OOP
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException("Allowerd load can't be negative");
+                    throw new InitializationException("Allowed load field value can't be negative.");
                 }
                 _allowedLoad = value;
             }

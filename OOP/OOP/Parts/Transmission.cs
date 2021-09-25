@@ -23,7 +23,7 @@ namespace OOP
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("Transmission type field can't be null");
+                    throw new InitializationException("Transmission type field can't be null.");
                 }
                 _type = value;
             }
@@ -40,7 +40,7 @@ namespace OOP
             {
                 if (value < 0)
                 {
-                    throw new ArgumentException("Amount of gears can't be negative");
+                    throw new InitializationException("Amount of gears field value can't be negative.");
                 }
                 _amountOfGears = value;
             }
@@ -57,7 +57,7 @@ namespace OOP
             {
                 if (value == null)
                 {
-                    throw new ArgumentNullException("Manufacturer field can't be null");
+                    throw new InitializationException("Manufacturer field can't be null.");
                 }
                 _manufacturer = value;
             }

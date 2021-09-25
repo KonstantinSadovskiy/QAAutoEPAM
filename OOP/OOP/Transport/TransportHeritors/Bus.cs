@@ -8,12 +8,29 @@ namespace OOP
     [Serializable]
     public class Bus : Transport
     {
-        private int AmountOfSeats { get; }
+        private int _amountOfSeats;
+
+        public int AmountOfSeats
+        {
+            get
+            {
+                return _amountOfSeats;
+            }
+
+            set
+            {
+                if (value < 0)
+                {
+                    throw new InitializationException("Amount of seats field value can't be negative.");
+                }
+                _amountOfSeats = value;
+            }
+        }
 
         public Bus() : base()
         { }
 
-        public Bus(Engine engine, Chassis chassis, Transmission transmission, string modelName, int amountOfSeats) : base(engine,chassis,transmission, modelName)
+        public Bus(Engine engine, Chassis chassis, Transmission transmission, string modelName, int id, int amountOfSeats) : base(engine,chassis,transmission, modelName, id)
         {
             this.AmountOfSeats = amountOfSeats;
         }
