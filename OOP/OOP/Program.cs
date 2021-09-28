@@ -49,11 +49,31 @@ namespace OOP
                 ListSerialization.SerializeList(Helper.GetTransportBusAndTruck(autoPark).Select(transportItem => transportItem.Engine).ToList(), "BusOrTruckEngineFiltered.xml");
                 ListSerialization.SerializeList(Helper.GetTransportGroupByTransmission(autoPark), "GroupByTransmissionFiltered.xml");
             }
-            catch(ArgumentNullException ex)
+            catch (InitializationException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (ArgumentNullException ex)
             {
                 Console.WriteLine(ex.Message);
             }
             catch(ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (AddException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (GetAutoByParameterException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (RemoveAutoException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch (UpdateAutoException ex)
             {
                 Console.WriteLine(ex.Message);
             }
