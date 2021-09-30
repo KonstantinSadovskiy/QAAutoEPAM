@@ -20,7 +20,7 @@ namespace ObjectOrientedDesignPrinciples.CommandOperations
             switch (args[0])
             {
                 case "AddCar":
-                    command = ExecAddCommand(args);
+                    command = ExecuteAddCommand(args);
                     break;
 
                 case "CountTypes":
@@ -60,7 +60,7 @@ namespace ObjectOrientedDesignPrinciples.CommandOperations
             return command;
         }
 
-        private static ICommand ExecAddCommand(string[] args)
+        private static ICommand ExecuteAddCommand(string[] args)
         {
             if (args.Length != 5)
             {
@@ -71,7 +71,7 @@ namespace ObjectOrientedDesignPrinciples.CommandOperations
             return new AddCommand(new Car(args[1], args[2], Convert.ToInt32(args[3]), Convert.ToDouble(args[4])));
         }
 
-        private static ICommand ExecCountTypesCommand(string[] args)
+        private static ICommand ExecuteCountTypesCommand(string[] args)
         {
             if (args.Length != 1)
             {
@@ -82,7 +82,7 @@ namespace ObjectOrientedDesignPrinciples.CommandOperations
             return new CountTypesCommand();
         }
 
-        private static ICommand ExecCountAllCommand(string[] args)
+        private static ICommand ExecuteCountAllCommand(string[] args)
         {
             if (args.Length != 1)
             {
@@ -93,7 +93,7 @@ namespace ObjectOrientedDesignPrinciples.CommandOperations
             return new CountAllCommand();
         }
 
-        private static ICommand ExecCountAveragePriceCommand(string[] args)
+        private static ICommand ExecuteCountAveragePriceCommand(string[] args)
         {
             if (args.Length != 1)
             {
@@ -104,7 +104,7 @@ namespace ObjectOrientedDesignPrinciples.CommandOperations
             return new CountAveragePriceCommand();
         }
 
-        private static ICommand ExecCountAveragePriceTypeCommand(string[] args)
+        private static ICommand ExecuteCountAveragePriceTypeCommand(string[] args)
         {
             if (args.Length != 2)
             {
@@ -115,7 +115,7 @@ namespace ObjectOrientedDesignPrinciples.CommandOperations
             return new CountAveragePriceTypeCommand(args[1]);
         }
 
-        private static ICommand ExecExitCommand(string[] args)
+        private static ICommand ExecuteExitCommand(string[] args)
         {
             if (args.Length != 1)
             {
@@ -126,7 +126,7 @@ namespace ObjectOrientedDesignPrinciples.CommandOperations
             return new ExitCommand();
         }
 
-        private static ICommand ExecHelpCommand(string[] args)
+        private static ICommand ExecuteHelpCommand(string[] args)
         {
             if (args.Length != 1)
             {
