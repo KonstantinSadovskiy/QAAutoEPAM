@@ -2,7 +2,7 @@
 
 namespace BasicOfNETFrameworkAndCSharp
 {
-    class ConversionFromDecimalToAny
+    class Program
     {
         static void Main(string[] args)
         {
@@ -17,6 +17,10 @@ namespace BasicOfNETFrameworkAndCSharp
                 Console.WriteLine(NumberSystemsOperations.ConvertDecimalToNewSystem(decimalNumber, newSystem));
             }
             catch(ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            catch(Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
