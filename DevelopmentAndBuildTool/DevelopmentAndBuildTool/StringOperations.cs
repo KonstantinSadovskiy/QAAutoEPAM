@@ -29,25 +29,83 @@ namespace DevelopmentAndBuildTools
             {
                 //Current streak counter
                 int currentCount = 1;
-                //Cycle that count amount of conecutive different chars
+                //Cycle that counts amount of conecutive different chars
                 while (!(sequenceOfChars[index] == sequenceOfChars[index - 1]))
                 {
                     currentCount++;
                     index++;
-                    //If encounter repeating chars, break
                     if (index == sequenceOfChars.Length)
                     {
                         break;
                     }
                 }
 
-                //If current streak bigger than previos, make current maxCount
+                //If current streak bigger than previous, make current maxCount
                 if (currentCount > maxCount)
                 {
                     maxCount = currentCount;
                 }
             }
 
+            return maxCount;
+        }
+
+        public static int CountMaxSameLetters(string sequenceOfChars)
+        {
+            if (sequenceOfChars == null)
+            {
+                throw new ArgumentNullException("Can't accept null string");
+            }
+
+            int length = sequenceOfChars.Length;
+            int maxCount = 0;
+
+            for (int i = 0; i < length; i++)
+            {
+                int count = 1;
+                for (int j = i + 1; j < length; j++)
+                {
+                    if (sequenceOfChars[i] != sequenceOfChars[j])
+                        break;
+                    count++;
+                }
+
+                if (count > maxCount &&
+                   ((sequenceOfChars[i] >= 'a' && sequenceOfChars[i] <= 'z') || (sequenceOfChars[i] >= 'A' && sequenceOfChars[i] <= 'Z')))
+                {
+                    maxCount = count;
+                }
+            }
+            return maxCount;
+        }
+
+        public static int CountMaxSameDigits(string sequenceOfChars)
+        {
+            if (sequenceOfChars == null)
+            {
+                throw new ArgumentNullException("Can't accept null string");
+            }
+
+            int length = sequenceOfChars.Length;
+            int maxCount = 0;
+
+            for (int i = 0; i < length; i++)
+            {
+                int count = 1;
+                for (int j = i + 1; j < length; j++)
+                {
+                    if (sequenceOfChars[i] != sequenceOfChars[j])
+                        break;
+                    count++;
+                }
+
+                // Update result if required
+                if (count > maxCount && 
+                   (sequenceOfChars[i] >= '0' && sequenceOfChars[i] <= '9'))
+                {
+                    maxCount = count;
+                }
+            }
             return maxCount;
         }
     }

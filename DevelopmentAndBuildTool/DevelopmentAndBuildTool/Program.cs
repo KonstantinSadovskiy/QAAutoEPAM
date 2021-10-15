@@ -2,7 +2,7 @@
 
 namespace DevelopmentAndBuildTools
 {
-    class MaxAmountOfDifferentConsecutiveChars
+    class Program
     {
         static void Main(string[] args)
         {
