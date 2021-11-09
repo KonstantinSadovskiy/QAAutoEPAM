@@ -13,7 +13,7 @@ namespace SeleniumWebDriver.Tests
 
         private User yandexUser = new User("testNo.3@yandex.by", "ButThenTheyBuriedHerAlive");
         private User mailRuUser = new User("testingqano.2@mail.ru", "OneEvening1945");
-        private const string newName = "Chel";
+        private const string newName = "FLDOPS";
 
         [SetUp]
         public void Setup()
@@ -38,6 +38,7 @@ namespace SeleniumWebDriver.Tests
                 .SendReply();
 
             //System.Threading.Tasks.Task.Delay(500).Wait();
+            //Unexpected alert open: { Alert text: }
             System.Threading.Thread.Sleep(500);
             var mailRuValidUser = new MailRuAuthorizationEmailPageObject(_webDriver)
                 .InputEmail(mailRuUser.Email)
