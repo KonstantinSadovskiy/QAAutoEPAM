@@ -9,27 +9,26 @@ namespace DevelopmentAndBuildTool.Tests
         [Test]
         public void CountMaxConsecutiveAmount_NullString_Test()
         {
-            //ARRANGE
+            // ARRANGE
             string sequenceOfChars = null;
 
-            //ACT + ASSERT
+            // ACT + ASSERT
             Assert.Throws<ArgumentNullException>(() => StringOperations.CountMaxConsecutiveAmount(sequenceOfChars));
         }
 
         [Test]
         public void CountMaxConsecutiveAmount_EmptyString_Test()
         {
-            //ARRANGE
-            string sequenceOfChars = "";
+            // ARRANGE
+            string sequenceOfChars = string.Empty;
 
-            //ACT
+            // ACT
             int actual = StringOperations.CountMaxConsecutiveAmount(sequenceOfChars);
 
-            //ASSERT
+            // ASSERT
             Assert.AreEqual(0, actual);
         }
 
-        [Test]
         [TestCase("aha", 3)]
         [TestCase("ahha", 2)]
         [TestCase("ahhaz", 3)]
@@ -39,12 +38,10 @@ namespace DevelopmentAndBuildTool.Tests
         [TestCase("aaaaaaah", 2)]
         public void CountMaxConsecutiveAmount_CorrectWork_Test(string sequenceOfChars, int expect)
         {
-            //ARRANGE
-
-            //ACT
+            // ACT
             int actual = StringOperations.CountMaxConsecutiveAmount(sequenceOfChars);
 
-            //ASSERT
+            // ASSERT
             Assert.AreEqual(expect, actual);
         }
     }

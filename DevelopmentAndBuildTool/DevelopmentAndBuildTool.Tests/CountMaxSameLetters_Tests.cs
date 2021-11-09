@@ -20,7 +20,7 @@ namespace DevelopmentAndBuildTool.Tests
         public void CountMaxSameLetters_EmptyString_Test()
         {
             //ARRANGE
-            string sequenceOfChars = "";
+            string sequenceOfChars = string.Empty;
 
             //ACT
             int actual = StringOperations.CountMaxSameLetters(sequenceOfChars);
@@ -29,7 +29,6 @@ namespace DevelopmentAndBuildTool.Tests
             Assert.AreEqual(0, actual);
         }
 
-        [Test]
         [TestCase("aha", 1)]
         [TestCase("ahha", 2)]
         [TestCase("aahhaa", 2)]
@@ -40,8 +39,6 @@ namespace DevelopmentAndBuildTool.Tests
         [TestCase("3", 0)]
         public void CountMaxSameLetters_CorrectWork_Test(string sequenceOfChars, int expect)
         {
-            //ARRANGE
-
             //ACT
             int actual = StringOperations.CountMaxSameLetters(sequenceOfChars);
 

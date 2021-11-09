@@ -20,7 +20,7 @@ namespace DevelopmentAndBuildTool.Tests
         public void CountMaxSameDigits_EmptyString_Test()
         {
             //ARRANGE
-            string sequenceOfChars = "";
+            string sequenceOfChars = string.Empty;
 
             //ACT
             int actual = StringOperations.CountMaxSameDigits(sequenceOfChars);
@@ -29,7 +29,6 @@ namespace DevelopmentAndBuildTool.Tests
             Assert.AreEqual(0, actual);
         }
 
-        [Test]
         [TestCase("343", 1)]
         [TestCase("3443", 2)]
         [TestCase("334433", 2)]
@@ -40,8 +39,6 @@ namespace DevelopmentAndBuildTool.Tests
         [TestCase("a", 0)]
         public void CountMaxSameDigits_CorrectWork_Test(string sequenceOfChars, int expect)
         {
-            //ARRANGE
-
             //ACT
             int actual = StringOperations.CountMaxSameDigits(sequenceOfChars);
 
