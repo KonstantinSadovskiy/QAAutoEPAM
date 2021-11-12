@@ -6,8 +6,8 @@ namespace SeleniumWebdriver.PageObjects.Yandex
     {
         private const string _url = "https://passport.yandex.by/";
 
-        private readonly By loginButton = By.XPath("//*[@id = 'passp-field-login']");
-        private readonly By nextButton = By.XPath("//*[@id = 'passp:sign-in']");
+        private readonly By loginButton = By.Id("passp-field-login");
+        private readonly By nextButton = By.Id("passp:sign-in");
 
         public YandexLoginNickPageObject(IWebDriver webDriver) : base(webDriver)
         {

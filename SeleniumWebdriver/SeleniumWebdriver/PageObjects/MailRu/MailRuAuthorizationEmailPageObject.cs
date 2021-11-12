@@ -6,7 +6,7 @@ namespace SeleniumWebdriver.PageObjects.MailRu
     {
         private const string _url = "https://account.mail.ru/login";
 
-        private readonly By authorizationEmailInputButton = By.XPath("//*[@data-test-id = 'username-formfield']/descendant::input[@type='text']");
+        private readonly By authorizationEmailInputButton = By.XPath("//*[@data-test-id = 'username-formfield']//input[@type='text']");
         private readonly By authorizationEmailSubmitButton = By.XPath("//*[@data-test-id = 'next-button']");
         private readonly By emptyEmailText = By.XPath("//small[@data-test-id = 'required']");
         private readonly By wrongEmailText = By.XPath("//small[@data-test-id = 'accountNotRegistered']");
@@ -42,13 +42,13 @@ namespace SeleniumWebdriver.PageObjects.MailRu
 
         public string GetEmptyEmailMessageText()
         {
-            Waiter.WaitForStaticElement(emptyEmailText);
+            Waiter.WaitForVisibleElement(emptyEmailText);
             return WebDriver.FindElement(emptyEmailText).Text;
         }
 
         public string GetWrongEmailMessageText()
         {
-            Waiter.WaitForStaticElement(wrongEmailText);
+            Waiter.WaitForVisibleElement(wrongEmailText);
             return WebDriver.FindElement(wrongEmailText).Text;
         }
     }

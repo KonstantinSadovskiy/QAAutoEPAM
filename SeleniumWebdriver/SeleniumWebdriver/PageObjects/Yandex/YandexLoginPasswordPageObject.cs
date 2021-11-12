@@ -4,8 +4,8 @@ namespace SeleniumWebdriver.PageObjects.Yandex
 {
      public class YandexLoginPasswordPageObject : BasePage
     {
-        private readonly By passwordButton = By.XPath("//*[@id = 'passp-field-passwd']");
-        private readonly By signinButton = By.XPath("//*[@id = 'passp:sign-in']");
+        private readonly By passwordButton = By.Id("passp-field-passwd");
+        private readonly By signinButton = By.Id("passp:sign-in");
 
         public YandexLoginPasswordPageObject(IWebDriver webDriver) : base(webDriver)
         {

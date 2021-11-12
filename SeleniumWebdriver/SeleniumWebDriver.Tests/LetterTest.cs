@@ -11,8 +11,8 @@ namespace SeleniumWebDriver.Tests
     {
         private IWebDriver _webDriver;
 
-        private User yandexUser = new User("testNo.3@yandex.by", "ButThenTheyBuriedHerAlive");
-        private User mailRuUser = new User("testingqano.2@mail.ru", "OneEvening1945");
+        private User yandexUser = new User{Email = "testNo.3@yandex.by", Password = "ButThenTheyBuriedHerAlive"};
+        private User mailRuUser = new User { Email = "testingqano.2@mail.ru", Password = "OneEvening1945" };
         private string letterTheme = "WebDriver - Test";
         private string letterText = "Neutral Milk Hotel — музыкальный коллектив из США, основанный в 1991 году Джеффом Мэнгамом и исполнявший эклектичный lo-fi/психоделический фолк.\n" +
                                     "Группа известна своими экспериментами со звуком, абстрактными поэтичными текстами и широким разнообразием используемых инструментов.";

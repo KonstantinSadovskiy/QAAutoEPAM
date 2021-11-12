@@ -5,9 +5,10 @@ namespace SeleniumWebdriver.PageObjects.Yandex
     public class YandexLetterPageObject : BasePage
     {
         private readonly By letterText = By.XPath("//div[contains(@class, 'mail-Message-Body-Content')]");
-        private readonly By letterReplyButton = By.XPath("//span[contains(@class, 'js-quick-reply-placeholder-single-reply')]");
+        private readonly By letterReplySuccess = By.ClassName("ns-view-quick-reply-done-success");
+        private readonly By letterReplyButton = By.ClassName("js-quick-reply-placeholder-single-reply");
         private readonly By letterInputReplyButton = By.XPath("//div[@role = 'textbox']");
-        private readonly By letterSendReplyButton = By.XPath("//button[contains(@class, 'js-send-button')]");
+        private readonly By letterSendReplyButton = By.ClassName("js-send-button");
 
         public YandexLetterPageObject(IWebDriver webDriver) : base(webDriver)
         {
@@ -16,7 +17,7 @@ namespace SeleniumWebdriver.PageObjects.Yandex
 
         public string GetLetterText()
         {
-            Waiter.WaitForStaticElement(letterText);
+            Waiter.WaitForVisibleElement(letterText);
             return WebDriver.FindElement(letterText).Text;
         }
 
@@ -35,6 +36,14 @@ namespace SeleniumWebdriver.PageObjects.Yandex
         {
             Waiter.WaitForClickableElement(letterSendReplyButton);
             WebDriver.FindElement(letterSendReplyButton).Click();
+
+
+            return this;
+        }
+
+        public YandexLetterPageObject ConfirmReplySuccess()
+        {
+            Waiter.WaitForVisibleElement(letterReplySuccess);
 
             return this;
         }

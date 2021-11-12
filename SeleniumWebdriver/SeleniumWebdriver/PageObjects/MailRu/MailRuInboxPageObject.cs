@@ -4,7 +4,7 @@ namespace SeleniumWebdriver.PageObjects.MailRu
 {
     public class MailRuInboxPageObject : BasePage
     {
-        private readonly By writeLetterMailRu = By.XPath("//span[@class = 'compose-button__txt']");
+        private readonly By writeLetterMailRu = By.ClassName("compose-button__txt");
         private readonly By newNickReplyLetter = By.XPath("//span[text() = 'WebDriver - Test']");
 
         public MailRuInboxPageObject(IWebDriver webDriver) : base(webDriver)

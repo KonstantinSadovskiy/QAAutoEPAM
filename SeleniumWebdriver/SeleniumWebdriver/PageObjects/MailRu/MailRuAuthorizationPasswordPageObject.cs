@@ -4,7 +4,7 @@ namespace SeleniumWebdriver.PageObjects.MailRu
 {
     public class MailRuAuthorizationPasswordPageObject : BasePage
     {
-        private readonly By authorizationPasswordInputButton = By.XPath("//div[@class = 'login-row password']/descendant::input[@type = 'password']");
+        private readonly By authorizationPasswordInputButton = By.XPath("//div[@class = 'login-row password']//input[@type = 'password']");
         private readonly By authorizationPasswordSubmitButton = By.XPath("//*[@data-test-id = 'submit-button']");
         private readonly By wrongPasswordText = By.XPath("//div[@data-test-id = 'error-footer-text']");
 
@@ -39,7 +39,7 @@ namespace SeleniumWebdriver.PageObjects.MailRu
 
         public string GetWrongPasswordMessageText()
         {
-            Waiter.WaitForStaticElement(wrongPasswordText);
+            Waiter.WaitForVisibleElement(wrongPasswordText);
             return WebDriver.FindElement(wrongPasswordText).Text;
         }
     }

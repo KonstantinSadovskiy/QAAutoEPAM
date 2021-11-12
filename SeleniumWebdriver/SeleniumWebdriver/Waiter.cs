@@ -16,14 +16,14 @@ namespace SeleniumWebdriver
             new WebDriverWait(WebDriver, TimeSpan.FromSeconds(runOutTime)).Until(ExpectedConditions.ElementToBeClickable(locator));
         }
 
-        public static void WaitForStaticElement(By locator)
+        public static void WaitForVisibleElement(By locator)
         {
             new WebDriverWait(WebDriver, TimeSpan.FromSeconds(runOutTime)).Until(ExpectedConditions.ElementIsVisible(locator));
         }
 
         public static void WaitForTitle(string title)
         {
-            new WebDriverWait(WebDriver, TimeSpan.FromSeconds(runOutTime)).Until(ExpectedConditions.TitleContains(title));
+            new WebDriverWait(WebDriver, TimeSpan.FromSeconds(runOutTime)).Until(ExpectedConditions.TitleIs(title));
         }
 
         public static void WaitPageLoading(double sec)

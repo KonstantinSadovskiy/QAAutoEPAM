@@ -11,8 +11,8 @@ namespace SeleniumWebDriver.Tests
     {
         private IWebDriver _webDriver;
 
-        private User yandexUser = new User("testNo.3@yandex.by", "ButThenTheyBuriedHerAlive");
-        private User mailRuUser = new User("testingqano.2@mail.ru", "OneEvening1945");
+        private User yandexUser = new User { Email = "testNo.3@yandex.by", Password = "ButThenTheyBuriedHerAlive" };
+        private User mailRuUser = new User { Email = "testingqano.2@mail.ru", Password = "OneEvening1945" };
         private const string newName = "FLDOPS";
 
         [SetUp]
@@ -35,11 +35,11 @@ namespace SeleniumWebDriver.Tests
                 .OpenSpamTab()
                 .OpenNewestLetter()
                 .InputLetterReply(newName)
-                .SendReply();
+                .SendReply()
+                .ConfirmReplySuccess();
 
-            //System.Threading.Tasks.Task.Delay(500).Wait();
             //Unexpected alert open: { Alert text: }
-            System.Threading.Thread.Sleep(500);
+            //System.Threading.Thread.Sleep(500);
             var mailRuValidUser = new MailRuAuthorizationEmailPageObject(_webDriver)
                 .InputEmail(mailRuUser.Email)
                 .SubmitEmail()

@@ -5,7 +5,7 @@ namespace SeleniumWebdriver.PageObjects.MailRu
     public class MailRuMainPageObject : BasePage
     {
         private readonly By profilePopUpButton = By.XPath("//div[@data-testid = 'whiteline-account']");
-        private readonly By profileName = By.XPath("//div[contains(@class, 'ph-name')]");
+        private readonly By profileName = By.ClassName("ph-name");
 
         public MailRuMainPageObject(IWebDriver webDriver) : base(webDriver)
         {
@@ -22,7 +22,7 @@ namespace SeleniumWebdriver.PageObjects.MailRu
 
         public string GetName()
         {
-            Waiter.WaitForStaticElement(profileName);
+            Waiter.WaitForVisibleElement(profileName);
             return WebDriver.FindElement(profileName).Text;
         }
     }

@@ -4,10 +4,10 @@ namespace SeleniumWebdriver.PageObjects.MailRu
 {
     public class MailRuSendLetterPageObject : BasePage
     {
-        private readonly By letterRecieverButton = By.XPath("//div[@data-name = 'to']/descendant::input[@type = 'text']");
-        private readonly By letterThemeButton = By.XPath("//input[@name = 'Subject']");
+        private readonly By letterRecieverButton = By.XPath("//div[@data-name = 'to']//input[@type = 'text']");
+        private readonly By letterThemeButton = By.Name("Subject");
         private readonly By letterTextButton = By.XPath("//div[@role = 'textbox']");
-        private readonly By letterSendButton = By.XPath("//div[@class = 'compose-app__footer']/descendant::span[@data-title-shortcut = 'Ctrl+Enter']");
+        private readonly By letterSendButton = By.XPath("//div[@class = 'compose-app__footer']//span[@data-title-shortcut = 'Ctrl+Enter']");
 
         public MailRuSendLetterPageObject(IWebDriver webDriver) : base(webDriver)
         {

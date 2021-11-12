@@ -11,9 +11,9 @@ namespace SeleniumWebDriver.Tests
     {
         private IWebDriver _webDriver;
 
-        private User fakeUser = new User("itsahahahahafake", "fakefake");
-        private User yandexUser = new User("testNo.3@yandex.by", "ButThenTheyBuriedHerAlive");
-        private User mailRuUser = new User("testingqano.2@mail.ru", "OneEvening1945");
+        private User fakeUser = new User{ Email = "itsahahahahafake", Password = "fakefake" };
+        private User yandexUser = new User { Email = "testNo.3@yandex.by", Password = "ButThenTheyBuriedHerAlive" };
+        private User mailRuUser = new User { Email = "testingqano.2@mail.ru", Password = "OneEvening1945" };
 
         [SetUp]
         public void Setup()

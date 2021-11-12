@@ -4,7 +4,7 @@ namespace SeleniumWebdriver.PageObjects.Yandex
 {
     public class YandexProfilePageObject : BasePage
     {
-        private readonly By userButton = By.XPath("//div[@class = 'PageHeader-user']");
+        private readonly By userButton = By.ClassName("PageHeader-user");
         private readonly By inboxButton = By.XPath("//a[@href = 'https://mail.yandex.by']");
 
         public YandexProfilePageObject(IWebDriver webDriver) : base(webDriver)
