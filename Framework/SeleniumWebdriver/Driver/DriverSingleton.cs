@@ -30,7 +30,7 @@ namespace SeleniumWebdriver.Driver
                     case "chrome":
                         {
                             ChromeOptions options = new ChromeOptions();
-                            options.AddArguments("–window-size=1920x1000");
+                            options.AddArguments("--window-size=1200,800");
                             new DriverManager().SetUpDriver(new ChromeConfig());
                             _webDriver = new ChromeDriver(options);
                             break;
