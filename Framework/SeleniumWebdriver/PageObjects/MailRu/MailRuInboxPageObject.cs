@@ -6,8 +6,8 @@ namespace SeleniumWebdriver.PageObjects.MailRu
     {
         private static readonly NLog.Logger _logger = NLog.LogManager.GetCurrentClassLogger();
 
-        private readonly By writeLetterMailRu = By.ClassName("compose-button__txt");
-        private readonly By newNickReplyLetter = By.XPath("//span[text() = 'WebDriver - Test']");
+        private readonly By writeLetterMailRuButton = By.ClassName("compose-button__wrapper");
+        private readonly By newNickReplyLetterButton = By.XPath("//span[text() = 'WebDriver - Test']");
 
         public MailRuInboxPageObject(IWebDriver webDriver) : base(webDriver)
         {
@@ -16,8 +16,8 @@ namespace SeleniumWebdriver.PageObjects.MailRu
 
         public MailRuSendLetterPageObject CreateLetter()
         {
-            Waiter.WaitForClickableElement(writeLetterMailRu);
-            WebDriver.FindElement(writeLetterMailRu).Click();
+            Waiter.WaitForClickableElement(writeLetterMailRuButton);
+            WebDriver.FindElement(writeLetterMailRuButton).Click();
 
             _logger.Debug("MailRu letter creator opened");
 
@@ -26,8 +26,8 @@ namespace SeleniumWebdriver.PageObjects.MailRu
 
         public MailRuLetterPageObject OpenReply()
         {
-            Waiter.WaitForClickableElement(newNickReplyLetter);
-            WebDriver.FindElement(newNickReplyLetter).Click();
+            Waiter.WaitForClickableElement(newNickReplyLetterButton);
+            WebDriver.FindElement(newNickReplyLetterButton).Click();
 
             _logger.Debug("MailRu reply opened");
 
