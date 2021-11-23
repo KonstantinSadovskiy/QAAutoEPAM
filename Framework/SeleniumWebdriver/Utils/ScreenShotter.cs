@@ -7,10 +7,11 @@ namespace SeleniumWebdriver.Utils
     {
         public static void TakeScreenshot(IWebDriver webDriver)
         {
-                string screenshotName = "SeleniumTestingScreenshot - " + DateTime.Now.ToString("yyyy - dd - M--HH - mm - ss") + ".png";
+            string screenshotName = "SeleniumTestingScreenshot - " + DateTime.Now.ToString("yyyy - dd - M--HH - mm - ss") + ".png";
 
-                Screenshot ss = ((ITakesScreenshot)webDriver).GetScreenshot();
-                ss.SaveAsFile(@$"Screenshots\{screenshotName}", ScreenshotImageFormat.Png);
+            Screenshot ss = ((ITakesScreenshot)webDriver).GetScreenshot();
+            System.IO.Directory.CreateDirectory("Screenshots");
+            ss.SaveAsFile($@"Screenshots\{screenshotName}", ScreenshotImageFormat.Png);
         }
     }
 }
