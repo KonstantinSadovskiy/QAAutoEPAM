@@ -21,18 +21,21 @@ namespace SeleniumWebdriver.Driver
                 {
                     case "edge":
                         {
+                            EdgeOptions options = new EdgeOptions();
+                            options.AddArguments("start-maximized");
                             new DriverManager().SetUpDriver(new EdgeConfig());
-                            _webDriver = new EdgeDriver();
+                            _webDriver = new EdgeDriver(options);
                             break;
                         }
                     case "chrome":
                         {
+                            ChromeOptions options = new ChromeOptions();
+                            options.AddArguments("start-maximized");
                             new DriverManager().SetUpDriver(new ChromeConfig());
-                            _webDriver = new ChromeDriver();
+                            _webDriver = new ChromeDriver(options);
                             break;
                         }
                 }
-                MaximizeWindow();
             }
 
             return _webDriver; 
