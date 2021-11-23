@@ -14,7 +14,6 @@ namespace SeleniumWebDriver.Tests
         public void Setup()
         {
             _webDriver = DriverSingleton.GetDriver();
-            DriverSingleton.MaximizeWindow();
         }
 
         [TearDown]

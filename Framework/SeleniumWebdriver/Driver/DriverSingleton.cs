@@ -32,6 +32,7 @@ namespace SeleniumWebdriver.Driver
                             break;
                         }
                 }
+                MaximizeWindow();
             }
 
             return _webDriver; 
