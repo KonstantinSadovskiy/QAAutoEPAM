@@ -14,6 +14,7 @@ namespace SeleniumWebDriver.Tests
         private User mailRuEmptyPasswordUser = UserCreator.CreateEmptyPasswordMailRuUser();
         private User mailRuWrongPasswordUser = UserCreator.CreateWrongPasswordMailRuUser();
 
+        [Category("All")]
         [Category("Smoke")]
         [Test]
         public void LoginYandex()
@@ -40,6 +41,7 @@ namespace SeleniumWebDriver.Tests
             Assert.IsTrue(actualPage is MailRuInboxPageObject);
         }
 
+        [Category("All")]
         [Category("Smoke")]
         [Test]
         public void EmptyEmailMailRu()
