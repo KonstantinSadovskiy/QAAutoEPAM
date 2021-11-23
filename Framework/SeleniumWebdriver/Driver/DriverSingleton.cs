@@ -30,7 +30,7 @@ namespace SeleniumWebdriver.Driver
                     case "chrome":
                         {
                             ChromeOptions options = new ChromeOptions();
-                            options.AddArguments("--window-size=1200,800");
+                            options.AddArguments("--window-size=1200x800");
                             new DriverManager().SetUpDriver(new ChromeConfig());
                             _webDriver = new ChromeDriver(options);
                             break;
@@ -51,6 +51,11 @@ namespace SeleniumWebdriver.Driver
         public static void MaximizeWindow()
         {
             _webDriver.Manage().Window.Maximize();
+        }
+
+        public static void GoFullscreenWindow()
+        {
+            _webDriver.Manage().Window.FullScreen();
         }
     }
 }
