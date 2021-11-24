@@ -40,6 +40,7 @@ namespace SeleniumWebdriver.Driver
                         {
                             FirefoxOptions options = new FirefoxOptions();
                             options.SetPreference("intl.accept_languages", "en-US, en");
+                            options.AddArgument("--disable-popup-blocking");
                             new DriverManager().SetUpDriver(new FirefoxConfig());
                             _webDriver = new FirefoxDriver(@"C:\WebDrivers", options);
                             MaximizeWindow();

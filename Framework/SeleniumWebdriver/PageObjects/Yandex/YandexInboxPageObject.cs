@@ -49,5 +49,12 @@ namespace SeleniumWebdriver.PageObjects.Yandex
 
             return new YandexLetterPageObject(WebDriver);
         }
+
+        public YandexInboxPageObject WaitUntilLoad()
+        {
+            Waiter.WaitPageLoading();
+
+            return this;
+        }
     }
 }

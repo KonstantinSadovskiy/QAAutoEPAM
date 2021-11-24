@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium;
+﻿using NUnit.Framework;
+using OpenQA.Selenium;
 
 namespace SeleniumWebdriver.PageObjects.Yandex
 {
@@ -51,9 +52,24 @@ namespace SeleniumWebdriver.PageObjects.Yandex
 
         public YandexLetterPageObject ConfirmReplySuccess()
         {
-            Waiter.WaitForVisibleElement(letterReplySuccess);
+            if (TestContext.Parameters["browser"] == "firefox")
+            {
+                Waiter.WaitForVisibleElementToDisappear(letterReplySuccess);
+            }
+            else
+            {
+                Waiter.WaitForVisibleElement(letterReplySuccess);
+            }
+
 
             _logger.Debug("Yandex reply sending confirmed");
+
+            return this;
+        }
+
+        public YandexLetterPageObject WaitUntilLoad()
+        {
+            Waiter.WaitPageLoading();
 
             return this;
         }

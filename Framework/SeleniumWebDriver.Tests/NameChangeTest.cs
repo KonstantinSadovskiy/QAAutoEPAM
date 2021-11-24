@@ -21,10 +21,13 @@ namespace SeleniumWebDriver.Tests
                 .SubmitNick()
                 .InputPassword(yandexUser.Password)
                 .SubmitPassword()
+                .WaitUntilLoad()
+                .WaitForSubscriptionButtonToAppear()
                 .OpenUserPopUp()
                 .GoToInboxPage()
                 .OpenSpamTab()
                 .OpenNewestLetter()
+                .WaitUntilLoad()
                 .InputLetterReply(replyToMailRu.Text)
                 .SendReply()
                 .ConfirmReplySuccess();

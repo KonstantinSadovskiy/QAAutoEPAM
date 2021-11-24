@@ -21,14 +21,21 @@ namespace SeleniumWebdriver
             new WebDriverWait(WebDriver, TimeSpan.FromSeconds(runOutTime)).Until(ExpectedConditions.ElementIsVisible(locator));
         }
 
+        public static void WaitForVisibleElementToDisappear(By locator)
+        {
+            new WebDriverWait(WebDriver, TimeSpan.FromSeconds(runOutTime)).Until(ExpectedConditions.InvisibilityOfElementLocated(locator));
+        }
+
         public static void WaitForTitle(string title)
         {
             new WebDriverWait(WebDriver, TimeSpan.FromSeconds(runOutTime)).Until(ExpectedConditions.TitleIs(title));
         }
 
-        public static void WaitPageLoading(double sec)
+        public static void WaitPageLoading()
         {
-            new WebDriverWait(WebDriver, TimeSpan.FromSeconds(sec));
+            new WebDriverWait(WebDriver, TimeSpan.FromSeconds(runOutTime))
+                .Until(d => ((IJavaScriptExecutor)d)
+                .ExecuteScript("return document.readyState").Equals("complete"));
         }
     }
 }
