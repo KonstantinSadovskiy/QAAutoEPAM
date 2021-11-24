@@ -52,7 +52,7 @@ namespace SeleniumWebDriver.Tests
                 .SubmitEmailExpectedError()
                 .GetEmptyEmailMessageText();
 
-            Assert.AreEqual(actualMessage, errorMessage);
+            Assert.AreEqual(errorMessage, actualMessage);
         }
 
         [Category("All")]

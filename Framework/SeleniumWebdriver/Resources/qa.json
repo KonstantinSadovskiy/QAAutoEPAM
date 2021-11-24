@@ -1,9 +1,9 @@
 {
-  "testdata.mailRu.user.email": "testingqano.2@mail.ru",
+  "testdata.mailRu.user.email": "testingqano.2",
   "testdata.mailRu.user.password": "OneEvening1945",
   "testdata.yandex.user.email": "testNo.3@yandex.by",
   "testdata.yandex.user.password": "ButThenTheyBuriedHerAlive",
-  "testdata.mailRu.user.fakeEmail": "thisdonotexist26@mail.ru",
+  "testdata.mailRu.user.fakeEmail": "thisdonotexist26",
   "testdata.yandex.user.fakeEmail": "thisdonotexist26@yandex.by",
   "testdata.user.fakePassword": "fakefake"
 }

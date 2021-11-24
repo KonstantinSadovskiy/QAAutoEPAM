@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
+using OpenQA.Selenium.Firefox;
 using WebDriverManager;
 using WebDriverManager.DriverConfigs.Impl;
 using NUnit.Framework;
@@ -33,6 +34,15 @@ namespace SeleniumWebdriver.Driver
                             options.AddArguments("start-maximized");
                             new DriverManager().SetUpDriver(new ChromeConfig());
                             _webDriver = new ChromeDriver(options);
+                            break;
+                        }
+                    case "firefox":
+                        {
+                            FirefoxOptions options = new FirefoxOptions();
+                            options.SetPreference("intl.accept_languages", "en-US, en");
+                            new DriverManager().SetUpDriver(new FirefoxConfig());
+                            _webDriver = new FirefoxDriver(@"C:\WebDrivers", options);
+                            MaximizeWindow();
                             break;
                         }
                 }

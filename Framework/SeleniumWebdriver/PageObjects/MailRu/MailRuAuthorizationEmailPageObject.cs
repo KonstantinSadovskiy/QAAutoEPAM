@@ -10,6 +10,7 @@ namespace SeleniumWebdriver.PageObjects.MailRu
 
         private readonly By authorizationEmailInputButton = By.XPath("//*[@data-test-id = 'username-formfield']//input[@type='text']");
         private readonly By authorizationEmailSubmitButton = By.XPath("//*[@data-test-id = 'next-button']");
+        private readonly By authorizationDomainSelectButton = By.XPath("//div[@data-test-id = 'domain-select']");
         private readonly By emptyEmailText = By.XPath("//small[@data-test-id = 'required']");
         private readonly By wrongEmailText = By.XPath("//small[@data-test-id = 'accountNotRegistered']");
 
@@ -20,7 +21,8 @@ namespace SeleniumWebdriver.PageObjects.MailRu
 
         public MailRuAuthorizationEmailPageObject InputEmail(string email)
         {
-            Waiter.WaitForClickableElement(authorizationEmailInputButton);
+            Waiter.WaitForClickableElement(authorizationDomainSelectButton);
+            WebDriver.FindElement(authorizationEmailInputButton).Clear();
             WebDriver.FindElement(authorizationEmailInputButton).SendKeys(email);
 
             _logger.Debug("MailRu mail inputed");
