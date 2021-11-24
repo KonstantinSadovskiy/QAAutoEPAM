@@ -36,7 +36,6 @@ namespace SeleniumWebdriver.Driver
                             break;
                         }
                 }
-                GoFullscreenWindow();
             }
 
             return _webDriver; 
